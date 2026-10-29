@@ -1,0 +1,271 @@
+
+sha256_m4.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <sha256_transform>:
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b0cb      	sub	sp, #300	@ 0x12c
+   6:	f10d 0924 	add.w	r9, sp, #36	@ 0x24
+   a:	4683      	mov	fp, r0
+   c:	af19      	add	r7, sp, #100	@ 0x64
+   e:	a80a      	add	r0, sp, #40	@ 0x28
+  10:	464a      	mov	r2, r9
+  12:	784b      	ldrb	r3, [r1, #1]
+  14:	780e      	ldrb	r6, [r1, #0]
+  16:	78cd      	ldrb	r5, [r1, #3]
+  18:	788c      	ldrb	r4, [r1, #2]
+  1a:	041b      	lsls	r3, r3, #16
+  1c:	ea43 6306 	orr.w	r3, r3, r6, lsl #24
+  20:	432b      	orrs	r3, r5
+  22:	ea43 2304 	orr.w	r3, r3, r4, lsl #8
+  26:	f842 3f04 	str.w	r3, [r2, #4]!
+  2a:	4297      	cmp	r7, r2
+  2c:	f101 0104 	add.w	r1, r1, #4
+  30:	d1ef      	bne.n	12 <sha256_transform+0x12>
+  32:	ae0a      	add	r6, sp, #40	@ 0x28
+  34:	9c19      	ldr	r4, [sp, #100]	@ 0x64
+  36:	f856 1bc0 	ldr.w	r1, [r6], #192
+  3a:	9f18      	ldr	r7, [sp, #96]	@ 0x60
+  3c:	f8d0 c024 	ldr.w	ip, [r0, #36]	@ 0x24
+  40:	460d      	mov	r5, r1
+  42:	f850 1f04 	ldr.w	r1, [r0, #4]!
+  46:	ea4f 42f7 	mov.w	r2, r7, ror #19
+  4a:	ea82 4277 	eor.w	r2, r2, r7, ror #17
+  4e:	ea4f 43b1 	mov.w	r3, r1, ror #18
+  52:	ea82 2297 	eor.w	r2, r2, r7, lsr #10
+  56:	ea83 13f1 	eor.w	r3, r3, r1, ror #7
+  5a:	4462      	add	r2, ip
+  5c:	ea83 03d1 	eor.w	r3, r3, r1, lsr #3
+  60:	441a      	add	r2, r3
+  62:	4627      	mov	r7, r4
+  64:	42b0      	cmp	r0, r6
+  66:	eb05 0402 	add.w	r4, r5, r2
+  6a:	63c4      	str	r4, [r0, #60]	@ 0x3c
+  6c:	d1e6      	bne.n	3c <sha256_transform+0x3c>
+  6e:	e9db 1214 	ldrd	r1, r2, [fp, #80]	@ 0x50
+  72:	f8db 406c 	ldr.w	r4, [fp, #108]	@ 0x6c
+  76:	f8db 305c 	ldr.w	r3, [fp, #92]	@ 0x5c
+  7a:	f8db e058 	ldr.w	lr, [fp, #88]	@ 0x58
+  7e:	f8db 0060 	ldr.w	r0, [fp, #96]	@ 0x60
+  82:	f8db 7064 	ldr.w	r7, [fp, #100]	@ 0x64
+  86:	f8db 6068 	ldr.w	r6, [fp, #104]	@ 0x68
+  8a:	9406      	str	r4, [sp, #24]
+  8c:	46a2      	mov	sl, r4
+  8e:	e9cd 1207 	strd	r1, r2, [sp, #28]
+  92:	4d30      	ldr	r5, [pc, #192]	@ (154 <sha256_transform+0x154>)
+  94:	f8cd e004 	str.w	lr, [sp, #4]
+  98:	9302      	str	r3, [sp, #8]
+  9a:	9003      	str	r0, [sp, #12]
+  9c:	9704      	str	r7, [sp, #16]
+  9e:	9605      	str	r6, [sp, #20]
+  a0:	9300      	str	r3, [sp, #0]
+  a2:	4614      	mov	r4, r2
+  a4:	468c      	mov	ip, r1
+  a6:	f8cd b024 	str.w	fp, [sp, #36]	@ 0x24
+  aa:	e005      	b.n	b8 <sha256_transform+0xb8>
+  ac:	463e      	mov	r6, r7
+  ae:	46a6      	mov	lr, r4
+  b0:	4607      	mov	r7, r0
+  b2:	4664      	mov	r4, ip
+  b4:	4640      	mov	r0, r8
+  b6:	469c      	mov	ip, r3
+  b8:	f855 2f04 	ldr.w	r2, [r5, #4]!
+  bc:	f859 1f04 	ldr.w	r1, [r9, #4]!
+  c0:	ea4f 23f0 	mov.w	r3, r0, ror #11
+  c4:	ea83 13b0 	eor.w	r3, r3, r0, ror #6
+  c8:	440a      	add	r2, r1
+  ca:	ea83 6370 	eor.w	r3, r3, r0, ror #25
+  ce:	4413      	add	r3, r2
+  d0:	ea26 0800 	bic.w	r8, r6, r0
+  d4:	ea00 0207 	and.w	r2, r0, r7
+  d8:	ea88 0802 	eor.w	r8, r8, r2
+  dc:	ea84 010e 	eor.w	r1, r4, lr
+  e0:	ea4f 327c 	mov.w	r2, ip, ror #13
+  e4:	ea82 02bc 	eor.w	r2, r2, ip, ror #2
+  e8:	ea01 010c 	and.w	r1, r1, ip
+  ec:	ea04 0b0e 	and.w	fp, r4, lr
+  f0:	4443      	add	r3, r8
+  f2:	ea82 52bc 	eor.w	r2, r2, ip, ror #22
+  f6:	f8dd 8000 	ldr.w	r8, [sp]
+  fa:	f8cd e000 	str.w	lr, [sp]
+  fe:	ea81 010b 	eor.w	r1, r1, fp
+ 102:	4453      	add	r3, sl
+ 104:	440a      	add	r2, r1
+ 106:	4498      	add	r8, r3
+ 108:	4413      	add	r3, r2
+ 10a:	4a13      	ldr	r2, [pc, #76]	@ (158 <sha256_transform+0x158>)
+ 10c:	4295      	cmp	r5, r2
+ 10e:	46b2      	mov	sl, r6
+ 110:	d1cc      	bne.n	ac <sha256_transform+0xac>
+ 112:	e9dd 1207 	ldrd	r1, r2, [sp, #28]
+ 116:	4462      	add	r2, ip
+ 118:	f8dd c010 	ldr.w	ip, [sp, #16]
+ 11c:	9d02      	ldr	r5, [sp, #8]
+ 11e:	f8dd b024 	ldr.w	fp, [sp, #36]	@ 0x24
+ 122:	4419      	add	r1, r3
+ 124:	4460      	add	r0, ip
+ 126:	9b01      	ldr	r3, [sp, #4]
+ 128:	f8dd c014 	ldr.w	ip, [sp, #20]
+ 12c:	191c      	adds	r4, r3, r4
+ 12e:	4467      	add	r7, ip
+ 130:	9b03      	ldr	r3, [sp, #12]
+ 132:	f8dd c018 	ldr.w	ip, [sp, #24]
+ 136:	4475      	add	r5, lr
+ 138:	4443      	add	r3, r8
+ 13a:	4466      	add	r6, ip
+ 13c:	e9cb 1214 	strd	r1, r2, [fp, #80]	@ 0x50
+ 140:	e9cb 4516 	strd	r4, r5, [fp, #88]	@ 0x58
+ 144:	e9cb 3018 	strd	r3, r0, [fp, #96]	@ 0x60
+ 148:	e9cb 761a 	strd	r7, r6, [fp, #104]	@ 0x68
+ 14c:	b04b      	add	sp, #300	@ 0x12c
+ 14e:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 152:	bf00      	nop
+ 154:	fffffffc 	.word	0xfffffffc
+ 158:	000000fc 	.word	0x000000fc
+
+0000015c <sha256_init>:
+ 15c:	a310      	add	r3, pc, #64	@ (adr r3, 1a0 <sha256_init+0x44>)
+ 15e:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 162:	e92d 0830 	stmdb	sp!, {r4, r5, fp}
+ 166:	e9c0 2314 	strd	r2, r3, [r0, #80]	@ 0x50
+ 16a:	a30f      	add	r3, pc, #60	@ (adr r3, 1a8 <sha256_init+0x4c>)
+ 16c:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 170:	f20f 0c3c 	addw	ip, pc, #60	@ 0x3c
+ 174:	e9dc bc00 	ldrd	fp, ip, [ip]
+ 178:	e9c0 2318 	strd	r2, r3, [r0, #96]	@ 0x60
+ 17c:	a30e      	add	r3, pc, #56	@ (adr r3, 1b8 <sha256_init+0x5c>)
+ 17e:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 182:	2400      	movs	r4, #0
+ 184:	2500      	movs	r5, #0
+ 186:	2100      	movs	r1, #0
+ 188:	e9c0 4512 	strd	r4, r5, [r0, #72]	@ 0x48
+ 18c:	e9c0 bc16 	strd	fp, ip, [r0, #88]	@ 0x58
+ 190:	e9c0 231a 	strd	r2, r3, [r0, #104]	@ 0x68
+ 194:	e8bd 0830 	ldmia.w	sp!, {r4, r5, fp}
+ 198:	6401      	str	r1, [r0, #64]	@ 0x40
+ 19a:	4770      	bx	lr
+ 19c:	f3af 8000 	nop.w
+ 1a0:	6a09e667 	.word	0x6a09e667
+ 1a4:	bb67ae85 	.word	0xbb67ae85
+ 1a8:	510e527f 	.word	0x510e527f
+ 1ac:	9b05688c 	.word	0x9b05688c
+ 1b0:	3c6ef372 	.word	0x3c6ef372
+ 1b4:	a54ff53a 	.word	0xa54ff53a
+ 1b8:	1f83d9ab 	.word	0x1f83d9ab
+ 1bc:	5be0cd19 	.word	0x5be0cd19
+
+000001c0 <sha256_update>:
+ 1c0:	b302      	cbz	r2, 204 <sha256_update+0x44>
+ 1c2:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 1c4:	188e      	adds	r6, r1, r2
+ 1c6:	4604      	mov	r4, r0
+ 1c8:	1e4d      	subs	r5, r1, #1
+ 1ca:	3e01      	subs	r6, #1
+ 1cc:	2700      	movs	r7, #0
+ 1ce:	e001      	b.n	1d4 <sha256_update+0x14>
+ 1d0:	42b5      	cmp	r5, r6
+ 1d2:	d016      	beq.n	202 <sha256_update+0x42>
+ 1d4:	6c22      	ldr	r2, [r4, #64]	@ 0x40
+ 1d6:	f815 1f01 	ldrb.w	r1, [r5, #1]!
+ 1da:	54a1      	strb	r1, [r4, r2]
+ 1dc:	1c53      	adds	r3, r2, #1
+ 1de:	2b40      	cmp	r3, #64	@ 0x40
+ 1e0:	6423      	str	r3, [r4, #64]	@ 0x40
+ 1e2:	d1f5      	bne.n	1d0 <sha256_update+0x10>
+ 1e4:	4621      	mov	r1, r4
+ 1e6:	4620      	mov	r0, r4
+ 1e8:	f7ff ff0a 	bl	0 <sha256_transform>
+ 1ec:	e9d4 3212 	ldrd	r3, r2, [r4, #72]	@ 0x48
+ 1f0:	f513 7300 	adds.w	r3, r3, #512	@ 0x200
+ 1f4:	f142 0200 	adc.w	r2, r2, #0
+ 1f8:	42b5      	cmp	r5, r6
+ 1fa:	e9c4 3212 	strd	r3, r2, [r4, #72]	@ 0x48
+ 1fe:	6427      	str	r7, [r4, #64]	@ 0x40
+ 200:	d1e8      	bne.n	1d4 <sha256_update+0x14>
+ 202:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 204:	4770      	bx	lr
+ 206:	bf00      	nop
+
+00000208 <sha256_final>:
+ 208:	b570      	push	{r4, r5, r6, lr}
+ 20a:	6c05      	ldr	r5, [r0, #64]	@ 0x40
+ 20c:	4604      	mov	r4, r0
+ 20e:	2380      	movs	r3, #128	@ 0x80
+ 210:	2d37      	cmp	r5, #55	@ 0x37
+ 212:	5563      	strb	r3, [r4, r5]
+ 214:	460e      	mov	r6, r1
+ 216:	f105 0001 	add.w	r0, r5, #1
+ 21a:	d842      	bhi.n	2a2 <sha256_final+0x9a>
+ 21c:	2838      	cmp	r0, #56	@ 0x38
+ 21e:	d005      	beq.n	22c <sha256_final+0x24>
+ 220:	f1c5 0237 	rsb	r2, r5, #55	@ 0x37
+ 224:	4420      	add	r0, r4
+ 226:	2100      	movs	r1, #0
+ 228:	f7ff fffe 	bl	0 <memset>
+ 22c:	e9d4 2312 	ldrd	r2, r3, [r4, #72]	@ 0x48
+ 230:	00ed      	lsls	r5, r5, #3
+ 232:	18ad      	adds	r5, r5, r2
+ 234:	f143 0300 	adc.w	r3, r3, #0
+ 238:	ba2a      	rev	r2, r5
+ 23a:	0e19      	lsrs	r1, r3, #24
+ 23c:	63e2      	str	r2, [r4, #60]	@ 0x3c
+ 23e:	2200      	movs	r2, #0
+ 240:	f361 0207 	bfi	r2, r1, #0, #8
+ 244:	0c19      	lsrs	r1, r3, #16
+ 246:	f361 220f 	bfi	r2, r1, #8, #8
+ 24a:	0a19      	lsrs	r1, r3, #8
+ 24c:	f361 4217 	bfi	r2, r1, #16, #8
+ 250:	f363 621f 	bfi	r2, r3, #24, #8
+ 254:	64e3      	str	r3, [r4, #76]	@ 0x4c
+ 256:	4621      	mov	r1, r4
+ 258:	64a5      	str	r5, [r4, #72]	@ 0x48
+ 25a:	63a2      	str	r2, [r4, #56]	@ 0x38
+ 25c:	4620      	mov	r0, r4
+ 25e:	f7ff fecf 	bl	0 <sha256_transform>
+ 262:	2318      	movs	r3, #24
+ 264:	1e71      	subs	r1, r6, #1
+ 266:	6d22      	ldr	r2, [r4, #80]	@ 0x50
+ 268:	40da      	lsrs	r2, r3
+ 26a:	f801 2f01 	strb.w	r2, [r1, #1]!
+ 26e:	6d62      	ldr	r2, [r4, #84]	@ 0x54
+ 270:	40da      	lsrs	r2, r3
+ 272:	710a      	strb	r2, [r1, #4]
+ 274:	6da2      	ldr	r2, [r4, #88]	@ 0x58
+ 276:	40da      	lsrs	r2, r3
+ 278:	720a      	strb	r2, [r1, #8]
+ 27a:	6de2      	ldr	r2, [r4, #92]	@ 0x5c
+ 27c:	40da      	lsrs	r2, r3
+ 27e:	730a      	strb	r2, [r1, #12]
+ 280:	6e22      	ldr	r2, [r4, #96]	@ 0x60
+ 282:	40da      	lsrs	r2, r3
+ 284:	740a      	strb	r2, [r1, #16]
+ 286:	6e62      	ldr	r2, [r4, #100]	@ 0x64
+ 288:	40da      	lsrs	r2, r3
+ 28a:	750a      	strb	r2, [r1, #20]
+ 28c:	6ea2      	ldr	r2, [r4, #104]	@ 0x68
+ 28e:	40da      	lsrs	r2, r3
+ 290:	760a      	strb	r2, [r1, #24]
+ 292:	6ee2      	ldr	r2, [r4, #108]	@ 0x6c
+ 294:	40da      	lsrs	r2, r3
+ 296:	3b08      	subs	r3, #8
+ 298:	f113 0f08 	cmn.w	r3, #8
+ 29c:	770a      	strb	r2, [r1, #28]
+ 29e:	d1e2      	bne.n	266 <sha256_final+0x5e>
+ 2a0:	bd70      	pop	{r4, r5, r6, pc}
+ 2a2:	283f      	cmp	r0, #63	@ 0x3f
+ 2a4:	d805      	bhi.n	2b2 <sha256_final+0xaa>
+ 2a6:	f1c5 023f 	rsb	r2, r5, #63	@ 0x3f
+ 2aa:	4420      	add	r0, r4
+ 2ac:	2100      	movs	r1, #0
+ 2ae:	f7ff fffe 	bl	0 <memset>
+ 2b2:	4621      	mov	r1, r4
+ 2b4:	4620      	mov	r0, r4
+ 2b6:	f7ff fea3 	bl	0 <sha256_transform>
+ 2ba:	2238      	movs	r2, #56	@ 0x38
+ 2bc:	2100      	movs	r1, #0
+ 2be:	4620      	mov	r0, r4
+ 2c0:	f7ff fffe 	bl	0 <memset>
+ 2c4:	e7b2      	b.n	22c <sha256_final+0x24>
+ 2c6:	bf00      	nop
