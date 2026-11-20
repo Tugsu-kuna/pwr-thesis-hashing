@@ -1,0 +1,417 @@
+
+blake2s_m4.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <blake2s_compress>:
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	4606      	mov	r6, r0
+   6:	b0ab      	sub	sp, #172	@ 0xac
+   8:	6c00      	ldr	r0, [r0, #64]	@ 0x40
+   a:	6cb2      	ldr	r2, [r6, #72]	@ 0x48
+   c:	6cf3      	ldr	r3, [r6, #76]	@ 0x4c
+   e:	f8df c330 	ldr.w	ip, [pc, #816]	@ 340 <blake2s_compress+0x340>
+  12:	424d      	negs	r5, r1
+  14:	6c71      	ldr	r1, [r6, #68]	@ 0x44
+  16:	ac0a      	add	r4, sp, #40	@ 0x28
+  18:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+  1a:	6d30      	ldr	r0, [r6, #80]	@ 0x50
+  1c:	6d71      	ldr	r1, [r6, #84]	@ 0x54
+  1e:	6db2      	ldr	r2, [r6, #88]	@ 0x58
+  20:	6df3      	ldr	r3, [r6, #92]	@ 0x5c
+  22:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+  24:	6e33      	ldr	r3, [r6, #96]	@ 0x60
+  26:	4ac7      	ldr	r2, [pc, #796]	@ (344 <blake2s_compress+0x344>)
+  28:	6e71      	ldr	r1, [r6, #100]	@ 0x64
+  2a:	405a      	eors	r2, r3
+  2c:	4bc6      	ldr	r3, [pc, #792]	@ (348 <blake2s_compress+0x348>)
+  2e:	ea85 0c0c 	eor.w	ip, r5, ip
+  32:	404b      	eors	r3, r1
+  34:	ac19      	add	r4, sp, #100	@ 0x64
+  36:	f10d 0ea4 	add.w	lr, sp, #164	@ 0xa4
+  3a:	4630      	mov	r0, r6
+  3c:	7881      	ldrb	r1, [r0, #2]
+  3e:	f890 8001 	ldrb.w	r8, [r0, #1]
+  42:	7807      	ldrb	r7, [r0, #0]
+  44:	78c5      	ldrb	r5, [r0, #3]
+  46:	0409      	lsls	r1, r1, #16
+  48:	ea41 2108 	orr.w	r1, r1, r8, lsl #8
+  4c:	4339      	orrs	r1, r7
+  4e:	ea41 6105 	orr.w	r1, r1, r5, lsl #24
+  52:	f844 1f04 	str.w	r1, [r4, #4]!
+  56:	4574      	cmp	r4, lr
+  58:	f100 0004 	add.w	r0, r0, #4
+  5c:	d1ee      	bne.n	3c <blake2s_compress+0x3c>
+  5e:	990f      	ldr	r1, [sp, #60]	@ 0x3c
+  60:	9105      	str	r1, [sp, #20]
+  62:	9911      	ldr	r1, [sp, #68]	@ 0x44
+  64:	48b9      	ldr	r0, [pc, #740]	@ (34c <blake2s_compress+0x34c>)
+  66:	9100      	str	r1, [sp, #0]
+  68:	49b9      	ldr	r1, [pc, #740]	@ (350 <blake2s_compress+0x350>)
+  6a:	f8dd 802c 	ldr.w	r8, [sp, #44]	@ 0x2c
+  6e:	f8dd e040 	ldr.w	lr, [sp, #64]	@ 0x40
+  72:	f8dd a034 	ldr.w	sl, [sp, #52]	@ 0x34
+  76:	f8cd 8018 	str.w	r8, [sp, #24]
+  7a:	e9cd 1002 	strd	r1, r0, [sp, #8]
+  7e:	f101 41bf 	add.w	r1, r1, #1602224128	@ 0x5f800000
+  82:	f501 21dc 	add.w	r1, r1, #450560	@ 0x6e000
+  86:	f8df b2cc 	ldr.w	fp, [pc, #716]	@ 354 <blake2s_compress+0x354>
+  8a:	9d0a      	ldr	r5, [sp, #40]	@ 0x28
+  8c:	9c0e      	ldr	r4, [sp, #56]	@ 0x38
+  8e:	9f0c      	ldr	r7, [sp, #48]	@ 0x30
+  90:	48b1      	ldr	r0, [pc, #708]	@ (358 <blake2s_compress+0x358>)
+  92:	f8df 82c8 	ldr.w	r8, [pc, #712]	@ 35c <blake2s_compress+0x35c>
+  96:	9609      	str	r6, [sp, #36]	@ 0x24
+  98:	f501 71b6 	add.w	r1, r1, #364	@ 0x16c
+  9c:	f8cd a01c 	str.w	sl, [sp, #28]
+  a0:	4676      	mov	r6, lr
+  a2:	f89b e000 	ldrb.w	lr, [fp]
+  a6:	eb0d 0e8e 	add.w	lr, sp, lr, lsl #2
+  aa:	f10b 0b10 	add.w	fp, fp, #16
+  ae:	f8de a068 	ldr.w	sl, [lr, #104]	@ 0x68
+  b2:	f8dd e014 	ldr.w	lr, [sp, #20]
+  b6:	44a2      	add	sl, r4
+  b8:	44aa      	add	sl, r5
+  ba:	f81b 5c0e 	ldrb.w	r5, [fp, #-14]
+  be:	eb0d 0585 	add.w	r5, sp, r5, lsl #2
+  c2:	ea8a 0202 	eor.w	r2, sl, r2
+  c6:	6ead      	ldr	r5, [r5, #104]	@ 0x68
+  c8:	eb0e 0905 	add.w	r9, lr, r5
+  cc:	9d06      	ldr	r5, [sp, #24]
+  ce:	44a9      	add	r9, r5
+  d0:	f81b 5c0c 	ldrb.w	r5, [fp, #-12]
+  d4:	eb0d 0585 	add.w	r5, sp, r5, lsl #2
+  d8:	ea89 0303 	eor.w	r3, r9, r3
+  dc:	6ead      	ldr	r5, [r5, #104]	@ 0x68
+  de:	9301      	str	r3, [sp, #4]
+  e0:	4435      	add	r5, r6
+  e2:	442f      	add	r7, r5
+  e4:	f81b 5c0a 	ldrb.w	r5, [fp, #-10]
+  e8:	eb0d 0585 	add.w	r5, sp, r5, lsl #2
+  ec:	eb01 4133 	add.w	r1, r1, r3, ror #16
+  f0:	6ead      	ldr	r5, [r5, #104]	@ 0x68
+  f2:	9b00      	ldr	r3, [sp, #0]
+  f4:	441d      	add	r5, r3
+  f6:	9b07      	ldr	r3, [sp, #28]
+  f8:	442b      	add	r3, r5
+  fa:	9d02      	ldr	r5, [sp, #8]
+  fc:	9302      	str	r3, [sp, #8]
+  fe:	405d      	eors	r5, r3
+ 100:	9b03      	ldr	r3, [sp, #12]
+ 102:	9506      	str	r5, [sp, #24]
+ 104:	eb03 4535 	add.w	r5, r3, r5, ror #16
+ 108:	9b00      	ldr	r3, [sp, #0]
+ 10a:	9503      	str	r5, [sp, #12]
+ 10c:	406b      	eors	r3, r5
+ 10e:	f81b 5c0f 	ldrb.w	r5, [fp, #-15]
+ 112:	9308      	str	r3, [sp, #32]
+ 114:	eb0d 0585 	add.w	r5, sp, r5, lsl #2
+ 118:	eb00 4032 	add.w	r0, r0, r2, ror #16
+ 11c:	6ead      	ldr	r5, [r5, #104]	@ 0x68
+ 11e:	9b01      	ldr	r3, [sp, #4]
+ 120:	4044      	eors	r4, r0
+ 122:	eb05 3534 	add.w	r5, r5, r4, ror #12
+ 126:	4455      	add	r5, sl
+ 128:	ea85 4a32 	eor.w	sl, r5, r2, ror #16
+ 12c:	eb00 203a 	add.w	r0, r0, sl, ror #8
+ 130:	ea80 3234 	eor.w	r2, r0, r4, ror #12
+ 134:	9207      	str	r2, [sp, #28]
+ 136:	f81b 2c0d 	ldrb.w	r2, [fp, #-13]
+ 13a:	9000      	str	r0, [sp, #0]
+ 13c:	eb0d 0282 	add.w	r2, sp, r2, lsl #2
+ 140:	ea81 0e0e 	eor.w	lr, r1, lr
+ 144:	6e92      	ldr	r2, [r2, #104]	@ 0x68
+ 146:	eb02 323e 	add.w	r2, r2, lr, ror #12
+ 14a:	444a      	add	r2, r9
+ 14c:	ea82 4933 	eor.w	r9, r2, r3, ror #16
+ 150:	f81b 3c0b 	ldrb.w	r3, [fp, #-11]
+ 154:	f8cd 9010 	str.w	r9, [sp, #16]
+ 158:	eb0d 0383 	add.w	r3, sp, r3, lsl #2
+ 15c:	ea87 0c0c 	eor.w	ip, r7, ip
+ 160:	eb08 483c 	add.w	r8, r8, ip, ror #16
+ 164:	6e9b      	ldr	r3, [r3, #104]	@ 0x68
+ 166:	ea88 0606 	eor.w	r6, r8, r6
+ 16a:	eb03 3336 	add.w	r3, r3, r6, ror #12
+ 16e:	441f      	add	r7, r3
+ 170:	eb01 2139 	add.w	r1, r1, r9, ror #8
+ 174:	ea87 4c3c 	eor.w	ip, r7, ip, ror #16
+ 178:	9101      	str	r1, [sp, #4]
+ 17a:	f8cd c014 	str.w	ip, [sp, #20]
+ 17e:	f81b 3c09 	ldrb.w	r3, [fp, #-9]
+ 182:	9c08      	ldr	r4, [sp, #32]
+ 184:	9800      	ldr	r0, [sp, #0]
+ 186:	eb0d 0383 	add.w	r3, sp, r3, lsl #2
+ 18a:	eb08 283c 	add.w	r8, r8, ip, ror #8
+ 18e:	6e9b      	ldr	r3, [r3, #104]	@ 0x68
+ 190:	eb03 3c34 	add.w	ip, r3, r4, ror #12
+ 194:	9b02      	ldr	r3, [sp, #8]
+ 196:	ea81 3e3e 	eor.w	lr, r1, lr, ror #12
+ 19a:	9906      	ldr	r1, [sp, #24]
+ 19c:	449c      	add	ip, r3
+ 19e:	9b03      	ldr	r3, [sp, #12]
+ 1a0:	ea8c 4131 	eor.w	r1, ip, r1, ror #16
+ 1a4:	eb03 2331 	add.w	r3, r3, r1, ror #8
+ 1a8:	ea83 3934 	eor.w	r9, r3, r4, ror #12
+ 1ac:	f81b 4c08 	ldrb.w	r4, [fp, #-8]
+ 1b0:	eb0d 0484 	add.w	r4, sp, r4, lsl #2
+ 1b4:	ea88 3636 	eor.w	r6, r8, r6, ror #12
+ 1b8:	6ea4      	ldr	r4, [r4, #104]	@ 0x68
+ 1ba:	4425      	add	r5, r4
+ 1bc:	f81b 4c06 	ldrb.w	r4, [fp, #-6]
+ 1c0:	eb0d 0484 	add.w	r4, sp, r4, lsl #2
+ 1c4:	eb05 15fe 	add.w	r5, r5, lr, ror #7
+ 1c8:	6ea4      	ldr	r4, [r4, #104]	@ 0x68
+ 1ca:	9502      	str	r5, [sp, #8]
+ 1cc:	4422      	add	r2, r4
+ 1ce:	eb02 12f6 	add.w	r2, r2, r6, ror #7
+ 1d2:	ea82 2a3a 	eor.w	sl, r2, sl, ror #8
+ 1d6:	eb03 433a 	add.w	r3, r3, sl, ror #16
+ 1da:	ea83 16f6 	eor.w	r6, r3, r6, ror #7
+ 1de:	9303      	str	r3, [sp, #12]
+ 1e0:	f81b 3c04 	ldrb.w	r3, [fp, #-4]
+ 1e4:	eb0d 0383 	add.w	r3, sp, r3, lsl #2
+ 1e8:	ea85 2131 	eor.w	r1, r5, r1, ror #8
+ 1ec:	6e9b      	ldr	r3, [r3, #104]	@ 0x68
+ 1ee:	441f      	add	r7, r3
+ 1f0:	9b04      	ldr	r3, [sp, #16]
+ 1f2:	eb07 17f9 	add.w	r7, r7, r9, ror #7
+ 1f6:	ea87 2333 	eor.w	r3, r7, r3, ror #8
+ 1fa:	eb00 4033 	add.w	r0, r0, r3, ror #16
+ 1fe:	ea80 19f9 	eor.w	r9, r0, r9, ror #7
+ 202:	f8cd 9000 	str.w	r9, [sp]
+ 206:	f81b 9c02 	ldrb.w	r9, [fp, #-2]
+ 20a:	eb0d 0989 	add.w	r9, sp, r9, lsl #2
+ 20e:	eb08 4831 	add.w	r8, r8, r1, ror #16
+ 212:	f8d9 4068 	ldr.w	r4, [r9, #104]	@ 0x68
+ 216:	44a4      	add	ip, r4
+ 218:	9c07      	ldr	r4, [sp, #28]
+ 21a:	eb0c 19f4 	add.w	r9, ip, r4, ror #7
+ 21e:	f8dd c014 	ldr.w	ip, [sp, #20]
+ 222:	ea89 253c 	eor.w	r5, r9, ip, ror #8
+ 226:	f8dd c004 	ldr.w	ip, [sp, #4]
+ 22a:	9504      	str	r5, [sp, #16]
+ 22c:	eb0c 4535 	add.w	r5, ip, r5, ror #16
+ 230:	f81b cc07 	ldrb.w	ip, [fp, #-7]
+ 234:	9501      	str	r5, [sp, #4]
+ 236:	eb0d 0c8c 	add.w	ip, sp, ip, lsl #2
+ 23a:	ea85 14f4 	eor.w	r4, r5, r4, ror #7
+ 23e:	f8dc c068 	ldr.w	ip, [ip, #104]	@ 0x68
+ 242:	9d02      	ldr	r5, [sp, #8]
+ 244:	ea88 1efe 	eor.w	lr, r8, lr, ror #7
+ 248:	4465      	add	r5, ip
+ 24a:	eb05 353e 	add.w	r5, r5, lr, ror #12
+ 24e:	ea85 4131 	eor.w	r1, r5, r1, ror #16
+ 252:	eb08 2831 	add.w	r8, r8, r1, ror #8
+ 256:	ea4f 2131 	mov.w	r1, r1, ror #8
+ 25a:	9102      	str	r1, [sp, #8]
+ 25c:	f81b 1c05 	ldrb.w	r1, [fp, #-5]
+ 260:	eb0d 0181 	add.w	r1, sp, r1, lsl #2
+ 264:	ea88 3e3e 	eor.w	lr, r8, lr, ror #12
+ 268:	6e89      	ldr	r1, [r1, #104]	@ 0x68
+ 26a:	440a      	add	r2, r1
+ 26c:	eb02 3236 	add.w	r2, r2, r6, ror #12
+ 270:	ea4f 1efe 	mov.w	lr, lr, ror #7
+ 274:	f8cd e014 	str.w	lr, [sp, #20]
+ 278:	9206      	str	r2, [sp, #24]
+ 27a:	9903      	ldr	r1, [sp, #12]
+ 27c:	f8dd c010 	ldr.w	ip, [sp, #16]
+ 280:	ea82 423a 	eor.w	r2, r2, sl, ror #16
+ 284:	eb01 2e32 	add.w	lr, r1, r2, ror #8
+ 288:	f81b 1c03 	ldrb.w	r1, [fp, #-3]
+ 28c:	f8cd e00c 	str.w	lr, [sp, #12]
+ 290:	eb0d 0181 	add.w	r1, sp, r1, lsl #2
+ 294:	ea8e 3636 	eor.w	r6, lr, r6, ror #12
+ 298:	6e89      	ldr	r1, [r1, #104]	@ 0x68
+ 29a:	440f      	add	r7, r1
+ 29c:	9900      	ldr	r1, [sp, #0]
+ 29e:	eb07 3731 	add.w	r7, r7, r1, ror #12
+ 2a2:	ea87 4333 	eor.w	r3, r7, r3, ror #16
+ 2a6:	eb00 2033 	add.w	r0, r0, r3, ror #8
+ 2aa:	ea80 3131 	eor.w	r1, r0, r1, ror #12
+ 2ae:	ea4f 11f1 	mov.w	r1, r1, ror #7
+ 2b2:	9100      	str	r1, [sp, #0]
+ 2b4:	f81b 1c01 	ldrb.w	r1, [fp, #-1]
+ 2b8:	eb0d 0181 	add.w	r1, sp, r1, lsl #2
+ 2bc:	ea4f 2232 	mov.w	r2, r2, ror #8
+ 2c0:	6e89      	ldr	r1, [r1, #104]	@ 0x68
+ 2c2:	4489      	add	r9, r1
+ 2c4:	eb09 3e34 	add.w	lr, r9, r4, ror #12
+ 2c8:	9901      	ldr	r1, [sp, #4]
+ 2ca:	f8cd e01c 	str.w	lr, [sp, #28]
+ 2ce:	ea8e 4c3c 	eor.w	ip, lr, ip, ror #16
+ 2d2:	f8df e08c 	ldr.w	lr, [pc, #140]	@ 360 <blake2s_compress+0x360>
+ 2d6:	eb01 213c 	add.w	r1, r1, ip, ror #8
+ 2da:	ea81 3434 	eor.w	r4, r1, r4, ror #12
+ 2de:	45f3      	cmp	fp, lr
+ 2e0:	ea4f 16f6 	mov.w	r6, r6, ror #7
+ 2e4:	ea4f 2333 	mov.w	r3, r3, ror #8
+ 2e8:	ea4f 2c3c 	mov.w	ip, ip, ror #8
+ 2ec:	ea4f 14f4 	mov.w	r4, r4, ror #7
+ 2f0:	f47f aed7 	bne.w	a2 <blake2s_compress+0xa2>
+ 2f4:	46b6      	mov	lr, r6
+ 2f6:	950a      	str	r5, [sp, #40]	@ 0x28
+ 2f8:	9e09      	ldr	r6, [sp, #36]	@ 0x24
+ 2fa:	9d02      	ldr	r5, [sp, #8]
+ 2fc:	f8dd a01c 	ldr.w	sl, [sp, #28]
+ 300:	9519      	str	r5, [sp, #100]	@ 0x64
+ 302:	46c1      	mov	r9, r8
+ 304:	9d05      	ldr	r5, [sp, #20]
+ 306:	f8dd 8018 	ldr.w	r8, [sp, #24]
+ 30a:	9216      	str	r2, [sp, #88]	@ 0x58
+ 30c:	9317      	str	r3, [sp, #92]	@ 0x5c
+ 30e:	9a03      	ldr	r2, [sp, #12]
+ 310:	9b00      	ldr	r3, [sp, #0]
+ 312:	9215      	str	r2, [sp, #84]	@ 0x54
+ 314:	9311      	str	r3, [sp, #68]	@ 0x44
+ 316:	f8cd 9050 	str.w	r9, [sp, #80]	@ 0x50
+ 31a:	f106 0340 	add.w	r3, r6, #64	@ 0x40
+ 31e:	950f      	str	r5, [sp, #60]	@ 0x3c
+ 320:	f8cd 802c 	str.w	r8, [sp, #44]	@ 0x2c
+ 324:	f8cd e040 	str.w	lr, [sp, #64]	@ 0x40
+ 328:	970c      	str	r7, [sp, #48]	@ 0x30
+ 32a:	9012      	str	r0, [sp, #72]	@ 0x48
+ 32c:	f8cd a034 	str.w	sl, [sp, #52]	@ 0x34
+ 330:	f8cd c060 	str.w	ip, [sp, #96]	@ 0x60
+ 334:	9113      	str	r1, [sp, #76]	@ 0x4c
+ 336:	940e      	str	r4, [sp, #56]	@ 0x38
+ 338:	aa0a      	add	r2, sp, #40	@ 0x28
+ 33a:	3660      	adds	r6, #96	@ 0x60
+ 33c:	e012      	b.n	364 <blake2s_compress+0x364>
+ 33e:	bf00      	nop
+ 340:	1f83d9ab 	.word	0x1f83d9ab
+ 344:	510e527f 	.word	0x510e527f
+ 348:	9b05688c 	.word	0x9b05688c
+ 34c:	a54ff53a 	.word	0xa54ff53a
+ 350:	5be0cd19 	.word	0x5be0cd19
+ 354:	00000000 	.word	0x00000000
+ 358:	6a09e667 	.word	0x6a09e667
+ 35c:	3c6ef372 	.word	0x3c6ef372
+ 360:	000000a0 	.word	0x000000a0
+ 364:	e9d3 0100 	ldrd	r0, r1, [r3]
+ 368:	9100      	str	r1, [sp, #0]
+ 36a:	6811      	ldr	r1, [r2, #0]
+ 36c:	6857      	ldr	r7, [r2, #4]
+ 36e:	e9d2 5408 	ldrd	r5, r4, [r2, #32]
+ 372:	4048      	eors	r0, r1
+ 374:	9900      	ldr	r1, [sp, #0]
+ 376:	4079      	eors	r1, r7
+ 378:	4068      	eors	r0, r5
+ 37a:	4061      	eors	r1, r4
+ 37c:	e9c3 0100 	strd	r0, r1, [r3]
+ 380:	3308      	adds	r3, #8
+ 382:	42b3      	cmp	r3, r6
+ 384:	f102 0208 	add.w	r2, r2, #8
+ 388:	d1ec      	bne.n	364 <blake2s_compress+0x364>
+ 38a:	b02b      	add	sp, #172	@ 0xac
+ 38c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+00000390 <blake2s_init>:
+ 390:	f8df c02c 	ldr.w	ip, [pc, #44]	@ 3c0 <blake2s_init+0x30>
+ 394:	4a0b      	ldr	r2, [pc, #44]	@ (3c4 <blake2s_init+0x34>)
+ 396:	490c      	ldr	r1, [pc, #48]	@ (3c8 <blake2s_init+0x38>)
+ 398:	e9c0 c211 	strd	ip, r2, [r0, #68]	@ 0x44
+ 39c:	4a0b      	ldr	r2, [pc, #44]	@ (3cc <blake2s_init+0x3c>)
+ 39e:	f8df c030 	ldr.w	ip, [pc, #48]	@ 3d0 <blake2s_init+0x40>
+ 3a2:	e9c0 1213 	strd	r1, r2, [r0, #76]	@ 0x4c
+ 3a6:	4a0b      	ldr	r2, [pc, #44]	@ (3d4 <blake2s_init+0x44>)
+ 3a8:	490b      	ldr	r1, [pc, #44]	@ (3d8 <blake2s_init+0x48>)
+ 3aa:	65c1      	str	r1, [r0, #92]	@ 0x5c
+ 3ac:	2300      	movs	r3, #0
+ 3ae:	e9c0 c215 	strd	ip, r2, [r0, #84]	@ 0x54
+ 3b2:	4a0a      	ldr	r2, [pc, #40]	@ (3dc <blake2s_init+0x4c>)
+ 3b4:	6402      	str	r2, [r0, #64]	@ 0x40
+ 3b6:	e9c0 3318 	strd	r3, r3, [r0, #96]	@ 0x60
+ 3ba:	6683      	str	r3, [r0, #104]	@ 0x68
+ 3bc:	4770      	bx	lr
+ 3be:	bf00      	nop
+ 3c0:	bb67ae85 	.word	0xbb67ae85
+ 3c4:	3c6ef372 	.word	0x3c6ef372
+ 3c8:	a54ff53a 	.word	0xa54ff53a
+ 3cc:	510e527f 	.word	0x510e527f
+ 3d0:	9b05688c 	.word	0x9b05688c
+ 3d4:	1f83d9ab 	.word	0x1f83d9ab
+ 3d8:	5be0cd19 	.word	0x5be0cd19
+ 3dc:	6b08e647 	.word	0x6b08e647
+
+000003e0 <blake2s_update>:
+ 3e0:	b392      	cbz	r2, 448 <blake2s_update+0x68>
+ 3e2:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 3e6:	6e83      	ldr	r3, [r0, #104]	@ 0x68
+ 3e8:	1e4d      	subs	r5, r1, #1
+ 3ea:	4604      	mov	r4, r0
+ 3ec:	18ae      	adds	r6, r5, r2
+ 3ee:	2701      	movs	r7, #1
+ 3f0:	f04f 0802 	mov.w	r8, #2
+ 3f4:	2b40      	cmp	r3, #64	@ 0x40
+ 3f6:	f04f 0100 	mov.w	r1, #0
+ 3fa:	4620      	mov	r0, r4
+ 3fc:	d122      	bne.n	444 <blake2s_update+0x64>
+ 3fe:	6e23      	ldr	r3, [r4, #96]	@ 0x60
+ 400:	f103 0240 	add.w	r2, r3, #64	@ 0x40
+ 404:	3341      	adds	r3, #65	@ 0x41
+ 406:	6622      	str	r2, [r4, #96]	@ 0x60
+ 408:	d902      	bls.n	410 <blake2s_update+0x30>
+ 40a:	6e63      	ldr	r3, [r4, #100]	@ 0x64
+ 40c:	3301      	adds	r3, #1
+ 40e:	6663      	str	r3, [r4, #100]	@ 0x64
+ 410:	f7ff fdf6 	bl	0 <blake2s_compress>
+ 414:	66a7      	str	r7, [r4, #104]	@ 0x68
+ 416:	1c6b      	adds	r3, r5, #1
+ 418:	7869      	ldrb	r1, [r5, #1]
+ 41a:	7021      	strb	r1, [r4, #0]
+ 41c:	42b3      	cmp	r3, r6
+ 41e:	f04f 0202 	mov.w	r2, #2
+ 422:	d00d      	beq.n	440 <blake2s_update+0x60>
+ 424:	f8c4 8068 	str.w	r8, [r4, #104]	@ 0x68
+ 428:	f815 3f02 	ldrb.w	r3, [r5, #2]!
+ 42c:	7063      	strb	r3, [r4, #1]
+ 42e:	42b5      	cmp	r5, r6
+ 430:	d006      	beq.n	440 <blake2s_update+0x60>
+ 432:	1c53      	adds	r3, r2, #1
+ 434:	66a3      	str	r3, [r4, #104]	@ 0x68
+ 436:	f815 1f01 	ldrb.w	r1, [r5, #1]!
+ 43a:	54a1      	strb	r1, [r4, r2]
+ 43c:	42b5      	cmp	r5, r6
+ 43e:	d1d9      	bne.n	3f4 <blake2s_update+0x14>
+ 440:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 444:	461a      	mov	r2, r3
+ 446:	e7f4      	b.n	432 <blake2s_update+0x52>
+ 448:	4770      	bx	lr
+ 44a:	bf00      	nop
+
+0000044c <blake2s_final>:
+ 44c:	b538      	push	{r3, r4, r5, lr}
+ 44e:	6e03      	ldr	r3, [r0, #96]	@ 0x60
+ 450:	4604      	mov	r4, r0
+ 452:	6e80      	ldr	r0, [r0, #104]	@ 0x68
+ 454:	181b      	adds	r3, r3, r0
+ 456:	460d      	mov	r5, r1
+ 458:	6623      	str	r3, [r4, #96]	@ 0x60
+ 45a:	d302      	bcc.n	462 <blake2s_final+0x16>
+ 45c:	6e63      	ldr	r3, [r4, #100]	@ 0x64
+ 45e:	3301      	adds	r3, #1
+ 460:	6663      	str	r3, [r4, #100]	@ 0x64
+ 462:	283f      	cmp	r0, #63	@ 0x3f
+ 464:	d913      	bls.n	48e <blake2s_final+0x42>
+ 466:	2101      	movs	r1, #1
+ 468:	4620      	mov	r0, r4
+ 46a:	f7ff fdc9 	bl	0 <blake2s_compress>
+ 46e:	2300      	movs	r3, #0
+ 470:	1e69      	subs	r1, r5, #1
+ 472:	089a      	lsrs	r2, r3, #2
+ 474:	3210      	adds	r2, #16
+ 476:	f003 0003 	and.w	r0, r3, #3
+ 47a:	f854 2022 	ldr.w	r2, [r4, r2, lsl #2]
+ 47e:	00c0      	lsls	r0, r0, #3
+ 480:	3301      	adds	r3, #1
+ 482:	40c2      	lsrs	r2, r0
+ 484:	2b20      	cmp	r3, #32
+ 486:	f801 2f01 	strb.w	r2, [r1, #1]!
+ 48a:	d1f2      	bne.n	472 <blake2s_final+0x26>
+ 48c:	bd38      	pop	{r3, r4, r5, pc}
+ 48e:	f1c0 0240 	rsb	r2, r0, #64	@ 0x40
+ 492:	2100      	movs	r1, #0
+ 494:	4420      	add	r0, r4
+ 496:	f7ff fffe 	bl	0 <memset>
+ 49a:	e7e4      	b.n	466 <blake2s_final+0x1a>
